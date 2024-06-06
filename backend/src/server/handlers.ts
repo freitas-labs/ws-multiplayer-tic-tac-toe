@@ -4,8 +4,7 @@ import {
 	GameStatus,
 	GamesRequestFromRawData,
 	JoinGameRequest,
-	MoveRequest,
-	NewGameResponse
+	MoveRequest
 } from '../models';
 import { withVault } from '../core';
 import { IncomingMessage } from 'http';
@@ -32,7 +31,7 @@ export async function newGame(
 
 			response.status(500).send();
 		},
-		(r) => response.status(201).send(NewGameResponse(r))
+		(r) => response.status(201).send(GameStatus(r))
 	);
 }
 

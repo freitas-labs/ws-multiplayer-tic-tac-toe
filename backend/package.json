@@ -57,6 +57,7 @@
 		"typescript": "^5.0.4"
 	},
 	"dependencies": {
+		"@fastify/cors": "^9.0.1",
 		"@web-pacotes/foundation-types": "^0.0.5",
 		"fastify": "^4.27.0",
 		"nanoid": "^5.0.7",
