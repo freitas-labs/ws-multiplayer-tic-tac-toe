@@ -13,6 +13,7 @@ Some of the things I've learned while building this project:
 - Transmitting data in websockets is really FAST
 - To achieve broadcast replies you gotta keep track of the open connection clients
 - To close a connection, the client & server can disconnect. Additionally, a ping-pong mechanism is used to validate if the client/server is still awake.
+- A websocket server can be mixed with an HTTP server on the same port (this is possible since a websocket connection starts with a HTTP request)
 
 ![image](https://github.com/freitas-labs/ws-multiplayer-tic-tac-toe/assets/26190214/f5094011-9b9d-45bc-a944-85be123bf387)
 
