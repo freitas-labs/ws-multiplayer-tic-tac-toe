@@ -14,7 +14,7 @@
 		"format": "prettier --write .",
 		"manager": "npm run start --prefix=tools/app-manager",
 		"typesafe-i18n": "typesafe-i18n",
-		"deploy": "npx gh-pages -d build -b gh-pages -r https://github.com/freitas-labs/tic-tac-toe-multiplayer-ws -t true --no-jekyll",
+		"deploy": "npx gh-pages -d build -b gh-pages -r https://github.com/freitas-labs/ws-multiplayer-tic-tac-toe -t true --nojekyll",
 		"test": "vitest --run",
 		"test:coverage": "vitest run --coverage",
 		"test:e2e": "playwright test --headed"

@@ -6,7 +6,7 @@ export class MultiplayerServerNetworkingClient extends NetworkingClient {
 	constructor(client: FetchClient) {
 		super({
 			fetchClient: client,
-			baseUrl: new URL(dev ? 'http://localhost:8080' : import.meta.env.multiplayer_server_url)
+			baseUrl: new URL(dev ? 'http://localhost:8080' : import.meta.env.VITE_multiplayer_server_url)
 		});
 	}
 }

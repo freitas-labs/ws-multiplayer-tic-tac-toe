@@ -9,6 +9,7 @@ import {
 } from '@web-pacotes/foundation-types';
 import type { MultiplayerServerNetworkingClient } from '@data';
 import { readable, type Readable } from 'svelte/store';
+import { dev } from '$app/environment';
 
 /**
  * A repository for managing todos.
@@ -29,7 +30,7 @@ export class MultiPlayerServerTicTacToeRepository implements TicTacToeRepository
 	}
 
 	async start(): Promise<Either<TypedError, Game>> {
-		const result = await this.client.post({ endpoint: '/api/games', mediaType: 'text/plain', cors: 'cors' });
+		const result = await this.client.post({ endpoint: 'api/games', mediaType: 'text/plain', cors: 'cors' });
 
 		console.log(result)
 
@@ -65,7 +66,7 @@ export class MultiPlayerServerTicTacToeRepository implements TicTacToeRepository
 	}
 
 	subscribe(game: Game): Either<TypedError, Readable<Game>> {
-		const ws = new WebSocket(`ws://localhost:8080/api/games/${game.id}`);
+		const ws = new WebSocket(`${dev ? 'ws' : 'wss'}://${this.client.baseUrl.host}${this.client.baseUrl.pathname}api/games/${game.id}`);
 		this.ws = ws;
 
 		const store = readable(game, (set) => {
